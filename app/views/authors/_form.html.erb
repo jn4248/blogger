@@ -13,26 +13,26 @@
 
   <div class="field">
     <%= form.label :username %><br />
-    <%= form.text_field :username %>
-    <!-- <%= form.text_field :username, id: :author_username %> -->
+    <!-- <%= form.text_field :username %> -->
+    <%= form.text_field :username, id: :author_username %>
   </div>
 
   <div class="field">
     <%= form.label :email %><br />
-    <%= form.text_field :email %>
-    <!-- <%= form.text_field :email, id: :author_email %> -->
+    <!-- <%= form.text_field :email %> -->
+    <%= form.text_field :email, id: :author_email %>
   </div>
 
   <div class="field">
     <%= form.label :password %><br />
-    <%= form.password_field :password %>
-    <!-- <%= form.password_field :password, id: :author_password %> -->
+    <!-- <%= form.password_field :password %> -->
+    <%= form.password_field :password, id: :author_password %>
   </div>
 
   <div class="field">
     <%= form.label :password_confirmation %><br />
-    <%= form.password_field :password_confirmation %>
-    <!-- <%= form.password_field :password_confirmation, id: :author_password_confirmation %> -->
+    <!-- <%= form.password_field :password_confirmation %> -->
+    <%= form.password_field :password_confirmation, id: :author_password_confirmation %>
   </div>
 
   <div class="actions">

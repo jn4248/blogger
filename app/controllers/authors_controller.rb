@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
   before_action :zero_authors_or_authenticated, only: [:new, :create]
-
+  before_action :require_login, except: [:new, :create]
 
   # GET /authors
   # GET /authors.json
@@ -58,7 +58,7 @@ class AuthorsController < ApplicationController
   def destroy
     @author.destroy
     respond_to do |format|
-      format.html { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
+      format.html { redirect_to authors_url, notice: 'Author was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -81,5 +81,11 @@ class AuthorsController < ApplicationController
       end
     end
 
+    def require_login
+      unless logged_in?
+        redirect_to root_path
+        return false
+      end
+    end
 
 end

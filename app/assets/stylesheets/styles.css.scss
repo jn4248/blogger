@@ -1,4 +1,4 @@
-$primary_color: #CCC;
+$primary_color: #DDD;
 
 body {
   background-color: $primary_color;
@@ -13,6 +13,10 @@ a {
   img {
     border: none;
   }
+}
+.article_body {
+  color: #000000;
+  font-size: 16px;
 }
 
 .clear {

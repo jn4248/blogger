@@ -6,7 +6,7 @@
   <% if logged_in? %>
     <%= link_to "Delete Comment", [comment.article, comment],
                   method: :delete,
-                  data: {confirm: "Realy delete this comment?"} %>
+                  data: {confirm: "Confirm: Delete this comment?"} %>
   <% end %>
   <hr>
 </div>

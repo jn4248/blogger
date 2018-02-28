@@ -19,7 +19,7 @@
         <td><%= author.password %></td>
         <td><%= link_to "Show", author %></td>
         <td><%= link_to "Edit", edit_author_path(author) %></td>
-        <td><%= link_to "Delete", author, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= link_to "Delete", author, method: :delete, data: { confirm: "Confirm: Delete this author?" } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,6 +28,10 @@
 <% if logged_in? %>
   <p id="content">
     <%= link_to "Create New Author", new_author_path %>
+  </p>
+  <p>
+    <%= link_to "Delete ALL Authors", [:delete_all, :authors], method: :delete, data: {confirm: "Confirm: Delete ALL authors?" } %>
+    (You will be logged off, and your account deleted!)
   </p>
 <% end %>
 

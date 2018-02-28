@@ -30,8 +30,13 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
-        format.json { render :show, status: :created, location: @author }
+        if logged_in?
+          format.html { redirect_to @author, notice: 'Author was successfully created.' }
+          format.json { render :show, status: :created, location: @author }
+        else
+          format.html { redirect_to :controller => 'author_sessions', :action => 'new', notice: 'Author was successfully created.' }
+          format.json { render :show, status: :created, location: @author }
+        end
       else
         format.html { render :new }
         format.json { render json: @author.errors, status: :unprocessable_entity }
@@ -61,6 +66,11 @@ class AuthorsController < ApplicationController
       format.html { redirect_to authors_url, notice: 'Author was successfully deleted.' }
       format.json { head :no_content }
     end
+  end
+
+  def delete_all
+    Author.delete_all
+    redirect_to articles_path
   end
 
   private

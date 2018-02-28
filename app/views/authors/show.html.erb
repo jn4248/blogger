@@ -10,5 +10,23 @@
   <%= @author.email %>
 </p>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<% if logged_in? %>
+  <p id="content">
+    <%= link_to "Edit Author", edit_author_path(@author) %>
+  </p>
+<% end %>
+
+<ul id="content">
+  <% if logged_in? %>
+    <li>
+      <%= link_to "Authors List", authors_path %>
+      (User Accounts)
+    </li>
+  <% end %>
+  <li>
+    <%= link_to "Articles List", articles_path %>
+  </li>
+  <li>
+    <%= link_to "Tags List", tags_path %>
+  </li>
+</ul>

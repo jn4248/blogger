@@ -5,23 +5,23 @@
   <% end %>
   </ul>
   <p>
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :body %><br />
+    <%= f.label :body %>
     <%= f.text_area :body %>
   </p>
   <p>
-    <%= f.label :tag_list %><br />
+    <%= f.label :tag_list %>
     <%= f.text_field :tag_list %>
   </p>
   <p>
     <% if @article.image.exists? %>
-      <%= image_tag @article.image.url %><br />
-      <%= f.label :image, "Attach a Different Image (replaces current image)" %><br />
+      <%= image_tag @article.image.url %>
+      <%= f.label :image, "Attach a Different Image (replaces current image)" %>
     <% else %>
-      <%= f.label :image, "Attach an Image" %><br />
+      <%= f.label :image, "Attach an Image" %>
     <% end %>
     <%= f.file_field :image %>
   </p>

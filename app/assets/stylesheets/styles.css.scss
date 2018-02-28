@@ -14,9 +14,33 @@ a {
     border: none;
   }
 }
+
+td {
+  padding: 0 5px 0 0;
+}
+
+th {
+  font-weight: bold;
+  padding: 0 10px 0 0;
+}
+
+.first_row {
+  border-bottom: 1px solid #000000;
+}
+
 .article_body {
   color: #000000;
-  font-size: 16px;
+  font-size: 18px;
+  margin: 10px 0 10px 0;
+}
+
+.comment {
+  color: #000000;
+  background-color: #e6e6ff;
+  font: {
+    family: Verdana, Helvetica, Arial;
+    size: 14px;
+  }
 }
 
 .clear {

@@ -1,17 +1,27 @@
 <h1>All Tags</h1>
 
-<p>Select a tag to view all associated articles.</p><br />
+<p>Select a tag to view all associated articles:</p>
 
 <ul id="tags">
   <% @tags.each do |tag| %>
     <% if tag.articles.exists? %>
-      <li class='tags'>
+      <li class="tags">
         <%= link_to tag.name, tag_path(tag) %>
       </li>
     <% else %>
       <% tag.destroy %>
     <% end %>
   <% end %>
-</ul> <br />
+</ul>
 
-<%= link_to "Back to Articles", articles_path %>
+<ul id="content">
+  <% if logged_in? %>
+    <li>
+      <%= link_to "Authors List", authors_path %>
+      (User Accounts)
+    </li>
+  <% end %>
+  <li>
+    <%= link_to "Articles List", articles_path %>
+  </li>
+</ul>

@@ -4,15 +4,25 @@
   <% @articles.each do |article| %>
     <li>
       <%= link_to article.title, article_path(article) %>
-      Posted: <%= article.created_at.strftime('%b %e, %Y  at %l:%M %p')%>
+      Posted: <%= article.created_at.strftime("%b %e, %Y  at %l:%M %p")%>
     </li>
   <% end %>
-</ul> <br /> <br />
-
-<p>
-  <%= link_to "List of All Tags", tags_path %>
-</p>
+</ul>
 
 <% if logged_in? %>
-  <%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+  <p id="content">
+    <%= link_to "Create a New Article", new_article_path %>
+  </p>
 <% end %>
+
+<ul id="content">
+  <% if logged_in? %>
+    <li>
+      <%= link_to "Authors List", authors_path %>
+      (User Accounts)
+    </li>
+  <% end %>
+  <li>
+    <%= link_to "Tags List", tags_path %>
+  </li>
+</ul>

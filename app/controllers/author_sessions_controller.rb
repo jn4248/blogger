@@ -1,6 +1,9 @@
 class AuthorSessionsController < ApplicationController
 
   def new
+    if Author.count == 0
+      redirect_to new_author_path
+    end
   end
 
   def create

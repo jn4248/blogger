@@ -13,15 +13,3 @@
     <% end %>
   <% end %>
 </ul>
-
-<ul id="content">
-  <% if logged_in? %>
-    <li>
-      <%= link_to "Authors List", authors_path %>
-      (User Accounts)
-    </li>
-  <% end %>
-  <li>
-    <%= link_to "Articles List", articles_path %>
-  </li>
-</ul>

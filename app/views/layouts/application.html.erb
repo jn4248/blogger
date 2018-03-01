@@ -12,18 +12,38 @@
     <p class="flash">
       <%= flash.notice%>
     </p>
-    <div id="container">
-      <div id="content">
-        <%= yield %>
-        <hr>
-        <h6>
-          <% if logged_in? %>
-            <%= "Logged in as #{current_user.email}" %>
-            <%= link_to "(logout)", logout_path %>
-          <% else %>
-              <%= link_to "(login)", login_path %>
-          <% end %>
-        </h6>
+
+    <div id="wrapper">
+      <nav class="sidenav">
+        <ul>
+          <li>
+            <%= link_to "Articles List", articles_path, class: "nav_link"%>
+          </li>
+          <li>
+            <%= link_to "Tags List", tags_path, class: "nav_link" %>
+          </li>
+          <ul>
+            <% if logged_in? %>
+              <li>
+                <%= link_to "Authors List", authors_path, class: "nav_link" %>
+              </li>
+            <% end %>
+          </ul>
+        </ul>
+      </nav>
+      <div id="container">
+        <div id="content">
+          <%= yield %>
+          <hr>
+          <h6>
+            <% if logged_in? %>
+              <%= "Logged in as #{current_user.email}" %>
+              <%= link_to "(logout)", logout_path %>
+            <% else %>
+                <%= link_to "(login)", login_path %>
+            <% end %>
+          </h6>
+        </div>
       </div>
     </div>
   </body>

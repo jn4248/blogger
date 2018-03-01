@@ -12,18 +12,3 @@
             data: {confirm: "Confirm: Delete this tag?"} %>
   (Removes tag from all associated articles)
 </p>
-
-<ul id="content">
-  <% if logged_in? %>
-    <li>
-      <%= link_to "Authors List", authors_path %>
-      (User Accounts)
-    </li>
-  <% end %>
-  <li>
-    <%= link_to "Articles List", articles_path %>
-  </li>
-  <li>
-    <%= link_to "Tags List", tags_path %>
-  </li>
-</ul>

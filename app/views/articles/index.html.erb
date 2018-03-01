@@ -14,15 +14,3 @@
     <%= link_to "Create a New Article", new_article_path %>
   </p>
 <% end %>
-
-<ul id="content">
-  <% if logged_in? %>
-    <li>
-      <%= link_to "Authors List", authors_path %>
-      (User Accounts)
-    </li>
-  <% end %>
-  <li>
-    <%= link_to "Tags List", tags_path %>
-  </li>
-</ul>

@@ -1,4 +1,4 @@
-$primary_color: #ccccff;
+$primary_color: #CCCCFF;
 
 body {
   background-color: $primary_color;
@@ -27,7 +27,6 @@ th {
 
 li {
   margin-bottom: 5px;
-  // list-style: none;
 }
 
 .first-row {
@@ -42,7 +41,7 @@ li {
 
 .comment {
   color: #000000;
-  background-color: #e6e6ff;
+  background-color: #E6E6FF;
   font: {
     family: Verdana, Helvetica, Arial;
     size: 14px;
@@ -57,30 +56,45 @@ li {
 
 .sidenav {
   background-image: linear-gradient(rgb(66, 103, 141), rgb(34, 52, 71));
-  color: white;
+  color: #FFF;
   padding-top: 110px;
   padding-left: 20px;
   position: absolute;
   height: 100%;
   width: 100px;
 }
- .navlink {
-   color: white;
+
+.navlink {
+   color: #FFF;
    font-size: 16px;
  }
+
+.column-container {
+  padding-right: 40px;
+}
+
+.column-thirty-percent {
+  display: inline-block;
+  width: 18%;
+}
+
+.column-seventy-percent {
+  display: inline-block;
+  width: 80%;
+}
 
 #wrapper {
   margin: 0px;
   position: relative;
   height: 100%;
   overflow: hidden;
-  border: solid 1px black;
+  border: solid 1px #000000;
   border-radius: 6px;
 }
 
 #container {
   margin-left: 120px;
-  background: #fff;
+  background: #FFF;
   padding: 20px 40px;
   position: relative;
 }
@@ -88,4 +102,18 @@ li {
 #content {
   clear: both;
   padding-top: 20px;
+}
+
+#user-account-failsafe {
+  font-size: 11px;
+  width: 140px;
+  height: 35px;
+  position: absolute;
+  right: 35px;
+  top: 35px;
+  padding: 5px;
+  background: #FFF;
+  border: 2px solid #FF0000;
+  border-radius: 5px;
+  overflow: auto;
 }

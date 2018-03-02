@@ -1,18 +1,24 @@
 <h1>All Articles</h1>
 
+<div id="user-account-failsafe">
+  <!-- Enables recreation of an initial user account,
+      if all user passwords are lost -->
+  <%= link_to "Delete ALL User Accounts", delete_all_authors_path,
+      method: :delete,
+      data: {confirm: "Confirm: Delete ALL User Accounts?"}%><br>
+  (Testing Failsafe)
+</div>
+
 <ul id="articles">
   <% @articles.each do |article| %>
     <li>
-      <%= link_to article.title, article_path(article) %>
-      Posted: <%= article.created_at.strftime("%b %e, %Y  at %l:%M %p")%> |
+      <%= link_to article.title, article_path(article) %><br>
+      Posted: <%= article.created_at.strftime("%b %e, %Y  at %l:%M %p")%>
       Views (<%= article.number_of_views %>)
-      <% if logged_in? %> |
-        <%= link_to "Reset Views", reset_number_of_views_article_path(article),
-            data: {confirm: "Confirm: Reset views to '0' for this article?"}%>
-       <% end %>
     </li>
   <% end %>
 </ul>
+
 
 <% if logged_in? %>
   <ul id="content">
@@ -20,9 +26,9 @@
       <%= link_to "Create a New Article", new_article_path %>
     </li>
     <li>
-      <%= link_to "Reset the number of views for ALL articles:",
-          reset_number_of_views_all_articles_path,
-          data: {confirm: "Confirm: Reset views to '0' for ALL articles?"}%>
+      <%= link_to "Reset Number of Views for ALL Articles:",
+      reset_number_of_views_all_articles_path,
+      data: {confirm: "Confirm: Reset Number of Views to '0' for ALL Articles?"}%>
     </li>
   </ul>
 <% end %>

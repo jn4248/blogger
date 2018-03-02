@@ -1,13 +1,13 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
   before_action :require_login, except: [:index, :show]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :reset_number_of_views]
 
   def index
     @articles = Article.all
   end
 
   def show
-    @article = Article.find(params[:id])
     @comment = Comment.new
     @comment.article_id = @article.id
     #update number of page views for article
@@ -20,7 +20,6 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def create
@@ -32,14 +31,12 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.update(article_params)
     flash.notice = "Article Updated: '#{@article.title}'"
     redirect_to article_path(@article)
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     flash.notice = "Article Deleted: '#{@article.title}'"
     redirect_to articles_path
@@ -48,15 +45,20 @@ class ArticlesController < ApplicationController
 
 
   def reset_number_of_views
-    @article = Article.find(params[:id])
     @article.number_of_views = 0
     @article.save!
-    redirect_to articles_path
+    redirect_to article_path(@article)
   end
 
   def reset_number_of_views_all
     Article.update_all number_of_views: 0
     redirect_to articles_path
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
   end
 
 end

@@ -10,10 +10,12 @@
 <% end %>
 <p class="article-body"><%= @article.body %></p>
 <% if logged_in? %>
-  <%= link_to "Edit Article", edit_article_path(@article) %>
+  <%= link_to "Edit Article", edit_article_path(@article) %> |
   <%= link_to "Delete Article", article_path(@article),
-              method: :delete,
-              data: {confirm: "Confirm: Delete this article?"} %>
+      method: :delete,
+      data: {confirm: "Confirm: Delete this article?"} %> | 
+  <%= link_to "Reset Number of Views", reset_number_of_views_article_path(@article),
+      data: {confirm: "Confirm: Reset Number of Views to '0' for this Article?"}%>
 <% end %>
 <h3>Comments (<%= @article.comments.size %>) | Views (<%= @article.number_of_views %>)</h3>
 

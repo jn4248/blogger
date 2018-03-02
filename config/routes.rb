@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :tags
+  resources :author_sessions, only: [ :new, :create, :destroy ]
 
   resources :authors do
     collection do
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :author_sessions, only: [ :new, :create, :destroy ]
+  resources :tags
 
   #TRY USING "to:" instead of =>
   get 'login'  => 'author_sessions#new'

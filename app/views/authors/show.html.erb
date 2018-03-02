@@ -13,11 +13,12 @@
 </p>
 
 <% if logged_in? %>
-  <p id="content">
-    <%= link_to "Edit Author", edit_author_path(@author) %>
-  </p>
-  <%= link_to "Create Another New Author", new_author_path %>
-  <p>
-
-  </p>
+  <ul id="content">
+    <li>
+      <%= link_to "Edit Author", edit_author_path(@author) %>
+    </li>
+    <li>
+      <%= link_to "Create Another New Author", new_author_path %>
+    </li>
+  </ul>
 <% end %>

@@ -26,11 +26,13 @@
 </table>
 
 <% if logged_in? %>
-  <li id="content">
-    <%= link_to "Create New Author", new_author_path %>
-  </li>
-  <li>
-    <%= link_to "Delete ALL Authors", [:delete_all, :authors], method: :delete, data: {confirm: "Confirm: Delete ALL authors?" } %>
-    (You will be logged off, and your account deleted!)
-  </li>
+  <ul id="content">
+    <li>
+      <%= link_to "Create New Author", new_author_path %>
+    </li>
+    <li>
+      <%= link_to "Delete ALL Authors", [:delete_all, :authors], method: :delete, data: {confirm: "Confirm: Delete ALL authors?" } %>
+      (You will be logged off, and your account deleted!)
+    </li>
+  </ul>
 <% end %>

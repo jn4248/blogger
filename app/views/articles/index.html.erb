@@ -1,14 +1,5 @@
 <h1>All Articles</h1>
 
-<div id="user-account-failsafe">
-  <!-- Enables recreation of an initial user account,
-      if all user passwords are lost -->
-  <%= link_to "Delete ALL User Accounts", delete_all_authors_path,
-      method: :delete,
-      data: {confirm: "Confirm: Delete ALL User Accounts?"}%><br>
-  (Testing Failsafe)
-</div>
-
 <ul id="articles">
   <% @articles.each do |article| %>
     <li>

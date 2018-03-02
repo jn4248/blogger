@@ -69,20 +69,6 @@ li {
    font-size: 16px;
  }
 
-.column-container {
-  padding-right: 40px;
-}
-
-.column-thirty-percent {
-  display: inline-block;
-  width: 18%;
-}
-
-.column-seventy-percent {
-  display: inline-block;
-  width: 80%;
-}
-
 #wrapper {
   margin: 0px;
   position: relative;
@@ -102,18 +88,4 @@ li {
 #content {
   clear: both;
   padding-top: 20px;
-}
-
-#user-account-failsafe {
-  font-size: 11px;
-  width: 140px;
-  height: 35px;
-  position: absolute;
-  right: 35px;
-  top: 35px;
-  padding: 5px;
-  background: #FFF;
-  border: 2px solid #FF0000;
-  border-radius: 5px;
-  overflow: auto;
 }

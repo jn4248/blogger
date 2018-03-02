@@ -17,15 +17,15 @@
       <nav class="sidenav">
         <ul>
           <li>
-            <%= link_to "Articles List", articles_path, class: "nav_link"%>
+            <%= link_to "Articles List", articles_path, class: "navlink"%>
           </li>
           <li>
-            <%= link_to "Tags List", tags_path, class: "nav_link" %>
+            <%= link_to "Tags List", tags_path, class: "navlink" %>
           </li>
           <ul>
             <% if logged_in? %>
               <li>
-                <%= link_to "Authors List", authors_path, class: "nav_link" %>
+                <%= link_to "Authors List", authors_path, class: "navlink" %>
               </li>
             <% end %>
           </ul>

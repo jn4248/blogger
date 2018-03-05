@@ -4,13 +4,24 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :reset_number_of_views]
 
   def index
-    @articles = Article.all
+    # sort types: date_asc, date_desc, views_asc, views_desc
+    sort_type = params[:sort]
+    if sort_type == "date_asc"
+      @articles = Article.order(created_at: :asc)
+    elsif sort_type == "date_desc"
+      @articles = Article.order(created_at: :desc)
+    elsif sort_type == "views_asc"
+      @articles = Article.order(number_of_views: :asc)
+    elsif sort_type == "views_desc"
+      @articles = Article.order(number_of_views: :desc)
+    else #default loading if no parameter passed (eg /articles)
+      @articles = Article.order(created_at: :desc)
+    end
   end
 
   def show
     @comment = Comment.new
     @comment.article_id = @article.id
-    #update number of page views for article
     @article.number_of_views += 1
     @article.save!
   end

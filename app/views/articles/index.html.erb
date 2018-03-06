@@ -1,10 +1,10 @@
 <h1>All Articles</h1>
 
 <ul class="horizontal_navbar">Sort Articles By:
-  <li><%= link_to "Newest", articles_path(:sort => "date_desc")%>
-  <li><%= link_to "Oldest", articles_path(:sort => "date_asc")%>
-  <li><%= link_to "Most Views", articles_path(:sort => "views_desc")%>
-  <li><%= link_to "Fewest Views", articles_path(:sort => "views_asc")%>
+  <li><%= link_to "Date \u25BC", articles_path(:sort => "date_desc")%>
+  <li><%= link_to "Date \u25B2", articles_path(:sort => "date_asc")%>
+  <li><%= link_to "Views \u25BC", articles_path(:sort => "views_desc")%>
+  <li><%= link_to "Views \u25B2", articles_path(:sort => "views_asc")%>
 </ul>
 
 <ul id="articles">

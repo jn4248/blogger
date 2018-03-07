@@ -22,8 +22,9 @@ class ArticlesController < ApplicationController
   def show
     @comment = Comment.new
     @comment.article_id = @article.id
-    @article.number_of_views += 1
-    @article.save!
+    #increase the page view count, and update the array used for the top articles in the sidebar
+    @article.increment_views
+    top_articles_by_views
   end
 
   def new
@@ -35,8 +36,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.number_of_views = 0
-    @article.save
+    @article.update(number_of_views: 0) #update also saves
     flash.notice = "Article Created: '#{@article.title}'"
     redirect_to article_path(@article)
   end
@@ -53,16 +53,13 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
-
-
   def reset_number_of_views
-    @article.number_of_views = 0
-    @article.save!
-    redirect_to article_path(@article)
+    @article.update(number_of_views: 0) #update also saves
+    redirect_to articles_path
   end
 
   def reset_number_of_views_all
-    Article.update_all number_of_views: 0
+    Article.update_all(number_of_views: 0)
     redirect_to articles_path
   end
 

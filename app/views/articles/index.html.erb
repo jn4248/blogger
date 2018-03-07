@@ -1,6 +1,6 @@
 <h1>All Articles</h1>
 
-<ul class="horizontal_navbar">Sort Articles By:
+<ul class="horizontal-navbar">Sort Articles By:
   <li><%= link_to "Date \u25BC", articles_path(:sort => "date_desc")%>
   <li><%= link_to "Date \u25B2", articles_path(:sort => "date_asc")%>
   <li><%= link_to "Views \u25BC", articles_path(:sort => "views_desc")%>
@@ -10,14 +10,12 @@
 <ul id="articles">
   <% @articles.each do |article| %>
     <li>
-      <%= link_to article.title, article_path(article) %><br>
-      Posted: <%= article.created_at.strftime("%b %e, %Y  at %l:%M %p")%>
+      <%= link_to article.title, article_path(article)  %><br>
+      Posted: <%= article.created_at.strftime("%b %e, %Y  at %l:%M %p")%> |
       Views (<%= article.number_of_views %>)
     </li>
   <% end %>
 </ul>
-
-
 
 <% if logged_in? %>
   <ul id="content">

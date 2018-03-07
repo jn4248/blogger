@@ -16,4 +16,8 @@ class Article < ApplicationRecord
     tags.join(", ")
   end
 
+  def increment_views
+    self.increment!(:number_of_views, by = 1)
+  end
+
 end

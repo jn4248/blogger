@@ -44,7 +44,7 @@ li {
   background-color: #E6E6FF;
   font: {
     family: Verdana, Helvetica, Arial;
-    size: 14px;
+    size: 16px;
   }
 }
 
@@ -61,20 +61,30 @@ li {
   padding-left: 20px;
   position: absolute;
   height: 100%;
-  width: 100px;
+  width: 225px;
 }
 
-.navlink {
-   color: #FFF;
+.nav-section {
+  margin-bottom: 70px;
+}
+
+.nav-title {
+  color: #FFF;
+  font-size: 20px;
+  text-shadow: 3px 3px 5px #000000;
+}
+
+.nav-link {
+   color: #CCC;
    font-size: 16px;
  }
 
-ul.horizontal_navbar {
+ul.horizontal-navbar {
   display: block;
   margin-bottom: 20px;
 }
 
-.horizontal_navbar li {
+ul.horizontal-navbar li {
   display: inline;
   margin-left: 10px;
 }
@@ -89,10 +99,11 @@ ul.horizontal_navbar {
 }
 
 #container {
-  margin-left: 120px;
+  margin-left: 245px;
   background: #FFF;
   padding: 20px 40px;
   position: relative;
+  min-height: 500px;
 }
 
 #content {

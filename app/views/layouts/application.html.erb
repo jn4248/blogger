@@ -15,22 +15,35 @@
 
     <div id="wrapper">
       <nav class="sidenav">
-        <ul>
+        <ul class="nav-section"><h3 class="nav-title">Site Links</h3>
           <li>
-            <%= link_to "Articles List", articles_path, class: "navlink"%>
+            <%= link_to "Articles List", articles_path, class: "nav-link"%>
           </li>
           <li>
-            <%= link_to "Tags List", tags_path, class: "navlink" %>
+            <%= link_to "Tags List", tags_path, class: "nav-link" %>
           </li>
           <ul>
             <% if logged_in? %>
               <li>
-                <%= link_to "Authors List", authors_path, class: "navlink" %>
+                <%= link_to "Authors List", authors_path, class: "nav-link" %>
               </li>
             <% end %>
           </ul>
         </ul>
+
+        <ul class="nav-section"><h3 class="nav-title">Top 3 Articles (views)</h3>
+          <% @top_articles_by_views.each do |article| %>
+            <li>
+              <% title = article.title %>
+              <% if title.length > 20 %>
+                <% title = title.slice(0..19) + "..." %>
+              <% end %>
+              <%= link_to title, article_path(article), class: "nav-link" %> (<%= article.number_of_views %>)
+            </li>
+          <% end %>
+        </ul>
       </nav>
+      
       <div id="container">
         <div id="content">
           <%= yield %>
